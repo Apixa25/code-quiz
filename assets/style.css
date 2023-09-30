@@ -1,0 +1,78 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1 {
+
+}
+h3 {
+    color: gray;
+}
+
+header {
+    background-color: aliceblue;
+}
+
+#id {
+
+}
+
+#start-button {
+    
+}
+
+body {
+    background-color: aliceblue;
+}
+
+#game-container {
+    
+}
+
+#game-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+#game-area div {
+    flex: 0 0 content;
+    text-align: center;
+    margin: 5px;
+    font-size: 200%;
+}
+
+#mystery-word {
+
+}
+
+#results-area {
+
+}
+
+#winCount {
+
+}
+
+#lossCount {
+
+}
+
+#reset-score {
+
+}
+
+#countdown-timer {
+
+}
+
+#countdown {
+    font-size: 200%;
+}
+
+#countdown-text {
+
+}
