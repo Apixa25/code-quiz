@@ -205,8 +205,8 @@ function resetScore () {
 
 
 function init() {
-    startButton.textContent = "Start";
-    countdownEl.textContent = "Are you ready?";
+    startButton.textContent = "Press Here To Test Your JavaScript Knowledge";
+    countdownEl.textContent = "Are you ready? The Countdown is about to start!";
     getScore();
 }
 

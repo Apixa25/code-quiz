@@ -8,15 +8,47 @@ h1 {
 
 }
 h3 {
-    color: gray;
+    color: rgb(124, 15, 15);
 }
 
 header {
-    background-color: aliceblue;
+    background-color: rgb(25, 189, 47);
 }
 
-#id {
-
+.quiz-app {
+    background: white;
+    width: 90%;
+    max-width: 600px;
+    margin: 100px auto 0;
+    border-radius: 10px;
+    padding: 30px;
+}
+.app h1{
+    font-size: 25px;
+    color: aqua;
+    font-weight: 600;
+    border-bottom: 1px solid #333;
+    padding-bottom: 30px;
+}
+.quiz {
+    padding: 20px 0;
+}
+.quiz h2{
+    font-size: 18px;
+    color: blue;
+    font-weight: 600;
+}
+.btn{
+    background: #fff;
+    color: #222;
+    font-weight: 500;
+    width: 100%;
+    border: 1px solid #222;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 #start-button {
@@ -24,7 +56,7 @@ header {
 }
 
 body {
-    background-color: aliceblue;
+    background-color: rgb(21, 68, 109);
 }
 
 #game-container {
@@ -42,7 +74,12 @@ body {
     flex: 0 0 content;
     text-align: center;
     margin: 5px;
-    font-size: 200%;
+    font-size: 300%;
+    color: aqua;
+}
+#high-score-list {
+    display: flex;
+    color: aqua;
 }
 
 #mystery-word {
