@@ -9,6 +9,75 @@ var lossCountEl = document.getElementById("lossCount");
 var countdownEl = document.getElementById("countdown");
 var countdownTextEl = document.getElementById("countdown-text");
 
+const questions = [
+    {
+        question: "Whats my name?",
+        answers: [
+        { text: "Fred", correct: false},
+        { text: "Ned", correct: false},
+        { text: "Steven", correct: true},
+        { text: "Magnus", correct: false},
+        ]
+    },
+    {
+        question: "Whats my number?",
+        answers: [
+        { text: "541", correct: false},
+        { text: "916", correct: false},
+        { text: "707", correct: true},
+        { text: "830", correct: false},
+        ]
+    },
+    {
+        question: "Whats a child of mines name?",
+        answers: [
+        { text: "Fred", correct: false},
+        { text: "Ned", correct: false},
+        { text: "Steven", correct: true},
+        { text: "Magnus", correct: false},
+        ]
+    },
+    {
+        question: "Whats my favorite food?",
+        answers: [
+        { text: "Pizza", correct: true},
+        { text: "Sallad", correct: false},
+        { text: "Candy", correct: false},
+        { text: "Hamburger", correct: false},
+        ]
+    }
+];
+const questionElement = document.getElementById("question");
+const answerButton = document.getElementById("answer-buttons");
+const nextButton = document.getElementById("next-btn");
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+function startQuiz(){
+    currentQuestionIndex = 0;
+    score = 0;
+    nextButton.innerHTML = "Next";
+    showQuestion();
+}
+
+function showQuestion(){
+    let currentQuestion = questions[currentQuestionIndex];
+    let questionNo = currentQuestionIndex + 1;
+    questionElement.innerHTML = questionNo + ". " currentQuestion.question;
+
+    currentQuestion.answers.forEach(answer =>) {
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answerButton.appendChild(button);
+
+    }
+}
+
+
+
+
 const gameDuration = 60;
 const penalty = 5;
 const wordList = ["sandwich", "moustache", "cat", "balloon", "grocery", "distribution", "river", "chocolate", "possibility", "article", "poet", "philosophy", "housing", "republic", "construction", "restaurant", "payment", "definition", "pizza", "area", "people", "confusion", "childhood", "breath", "leader", "committee", "teaching", "employer", "coffee", "opinion", "queen", "college", "interaction", "psychology", "proposal", "accident", "discussion", "shopping", "mom", "disaster", "clothes", "potato", "session", "growth", "ear", "orange", "procedure", "affair", "salad", "dealer", "hall", "charity", "assumption", "country"];
