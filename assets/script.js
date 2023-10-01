@@ -22,7 +22,7 @@ const questions = [
     {
         question: "Whats my name?",
         answers: [
-        { text: "Fred", correct: false},
+        { text: "Fred", correct: false,},
         { text: "Ned", correct: false},
         { text: "Steven", correct: true},
         { text: "Magnus", correct: false},
@@ -61,6 +61,10 @@ const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 const appWindow = document.getElementsByClassName("quiz-app");
 
+var sayJStimer = document.getElementById("countdown-js");
+
+
+
 let currentQuestionIndex = 0;
 let score = 0;
 
@@ -88,8 +92,12 @@ function showQuestion(){
         button.addEventListener("click", selectAnswer);
     });
 }
+
+// function revealQuestion() {
+//     appWindow.style.diplay = "none";
+// }
+
 function resetState(){
-    appWindow.style.diplay = "none";
     nextButton.style.display = "none";
     while(answerButtons.firstChild){
         answerButtons.removeChild(answerButtons.firstChild);
@@ -102,8 +110,9 @@ function selectAnswer(e){
     if(isCorrect){
         selectedBtn.classList.add("correct");
         score++;
-    }else{ 
+    }else{
         selectedBtn.classList.add("incorrect");
+        secondsLeft -= 5;
     }
     Array.from(answerButtons.children).forEach(button => {
         if(button.dataset.correct === "true"){
@@ -222,14 +231,14 @@ var secondsLeft = 13;
 // });
 
 startJStimer.addEventListener("click", function() {
-    appWindow.innerHTML = "Next";
+    // appWindow.innerHTML = "Next";
     countdown();
 });
 
 
 
 function countdown() {
-    var secondsLeft = 13;
+    var secondsLeft = 15;
     var timerInterval = setInterval(function () {
         secondsLeft--;
         sayJStimer.textContent = "You have " + secondsLeft + " seconds left till its over!"
@@ -237,6 +246,9 @@ function countdown() {
             clearInterval(timerInterval);
             console.log(timerInterval)
             sendMessage();
+        }
+        if (secondsLeft >= 11) {
+            sayJStimer.style.color = "black";
         }
         if (secondsLeft <= 10) {
             sayJStimer.style.color = "red";
