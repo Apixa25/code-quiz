@@ -204,20 +204,41 @@ function addDiv(text, index) {
     gameAreaEl.appendChild(div);
 }
 
+var startJStimer = document.getElementById("start-js-timer");
+var sayJStimer = document.getElementById("countdown-js");
+var secondsLeft = 13;
 
-var startButton = document.getElementById("start-button");
+startJStimer.addEventListener("click", function() {
+    countdown();
+});
 
-function countdown(start, end) {
-    var timer = setInterval(function() {
-      var timeLeft = end - new Date();
-      if (timeLeft <= 0) {
-        clearInterval(timer);
-        // do something when the timer reaches 0
-      } else {
-        // update the timer display
-      }
+
+
+function countdown() {
+    var timerInterval = setInterval(function () {
+        secondsLeft--;
+        sayJStimer.textContent = secondsLeft + " Seconds left till its over!"
+        if (secondsLeft === 0) {  
+            clearInterval(timerInterval);
+            sendMessage();
+        }
+        if (secondsLeft <= 10) {
+            sayJStimer.style.color = "red";
+        }
+        // if (secondsLeft <= 0) {
+        //     clearInterval(secondsLeft);
+        // }
+        
     }, 1000);
   }
+
+function sendMessage() {
+    sayJStimer.textContent = "🤯TIME IS UP!🤯";
+  }
+
+
+
+
 
 
 
