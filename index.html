@@ -10,18 +10,29 @@
 
 <header>
 
-    <h1 id="title" >Code Quiz</h1>
+    <h1 id="title" >This is a timed quiz. You have to answer as many questions as you can in the given time</h1>
 
     <button id="start-button">Start</button>
 
 </header>
 
 <body>
+    <div id="countdown-timer" >
 
+        <p id="countdown" >0</p>
+
+        <p id="countdown-text" ></p>
+
+    </div>
     <div id="game-container" >
 
         <div id="game-area" >
 
+        </div>
+        <button id="start-js-timer">JS Test Timer</button>
+        <div id="timer-js">
+            <p id="countdown-js">0</p>
+            <p id="countdown-js-text"></p>
         </div>
         <div class="quiz-app">
             <div class="quiz">
@@ -47,13 +58,7 @@
 
             <button id="reset-score-button" >Reset Score</button>
 
-            <div id="countdown-timer" >
-
-                <p id="countdown" >0</p>
-
-                <p id="countdown-text" ></p>
-
-            </div>
+           
             <div id="high-score-list"><p>Holder For the High Score List</p>
             </div>
 

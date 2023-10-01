@@ -205,16 +205,32 @@ function addDiv(text, index) {
 }
 
 
+var startButton = document.getElementById("start-button");
+
+function countdown(start, end) {
+    var timer = setInterval(function() {
+      var timeLeft = end - new Date();
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        // do something when the timer reaches 0
+      } else {
+        // update the timer display
+      }
+    }, 1000);
+  }
+
+
+
 function startCountdown() {
 
     secondsRemaining = gameDuration;
     countdownEl.textContent = secondsRemaining;
     countdownTextEl.textContent = "seconds remaining";
 
-    var timerInterval = setInterval(function() {
+    var timer = setInterval(function() {
 
         if (youWon === true) {
-            clearInterval(timerInterval);
+            clearInterval(timer);
         }
 
         secondsRemaining--;
@@ -227,7 +243,7 @@ function startCountdown() {
         }
 
         if (secondsRemaining <= 0) {
-            clearInterval(timerInterval);
+            clearInterval(timer);
 
             youAreALoser();
             endGame();
