@@ -5,7 +5,7 @@
 }
 
 h1 {
-
+    margin-top: -30px;
 }
 h3 {
     color: rgb(124, 15, 15);
@@ -14,20 +14,26 @@ h3 {
 header {
     background-color: rgb(25, 189, 47);
 }
-#start-js-timer{
+#start-box {
+}
+
+#start-js-timer {
     font-size: 30px;
 }
 
-#timer-js{
-   font-size: 30px; 
+#timer-js {
+   font-size: 50px; 
+   background: #fff;
 }
-
+#countdown-js {
+    text-align: center;
+}
 
 .quiz-app {
     background: white;
     width: 90%;
     max-width: 600px;
-    margin: 100px auto 0;
+    margin: 75px auto 0;
     border-radius: 10px;
     padding: 30px;
 }

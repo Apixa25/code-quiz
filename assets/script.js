@@ -11,6 +11,15 @@ var countdownTextEl = document.getElementById("countdown-text");
 
 const questions = [
     {
+        question: "First ones an easy one. Are you ready to play?",
+        answers: [
+        { text: "I guess so.", correct: true},
+        { text: "YES", correct: true},
+        { text: "Oh heck yea!", correct: true},
+        { text: "Lets Get it on!", correct: true},
+        ]
+    },
+    {
         question: "Whats my name?",
         answers: [
         { text: "Fred", correct: false},
@@ -50,6 +59,7 @@ const questions = [
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
+const appWindow = document.getElementsByClassName("quiz-app");
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -79,6 +89,7 @@ function showQuestion(){
     });
 }
 function resetState(){
+    appWindow.style.diplay = "none";
     nextButton.style.display = "none";
     while(answerButtons.firstChild){
         answerButtons.removeChild(answerButtons.firstChild);
@@ -131,95 +142,100 @@ startQuiz();
 
 
 
+// const gameDuration = 60;
+// const penalty = 5;
+// const wordList = ["sandwich", "moustache", "cat", "balloon", "grocery", "distribution", "river", "chocolate", "possibility", "article", "poet", "philosophy", "housing", "republic", "construction", "restaurant", "payment", "definition", "pizza", "area", "people", "confusion", "childhood", "breath", "leader", "committee", "teaching", "employer", "coffee", "opinion", "queen", "college", "interaction", "psychology", "proposal", "accident", "discussion", "shopping", "mom", "disaster", "clothes", "potato", "session", "growth", "ear", "orange", "procedure", "affair", "salad", "dealer", "hall", "charity", "assumption", "country"];
 
-const gameDuration = 60;
-const penalty = 5;
-const wordList = ["sandwich", "moustache", "cat", "balloon", "grocery", "distribution", "river", "chocolate", "possibility", "article", "poet", "philosophy", "housing", "republic", "construction", "restaurant", "payment", "definition", "pizza", "area", "people", "confusion", "childhood", "breath", "leader", "committee", "teaching", "employer", "coffee", "opinion", "queen", "college", "interaction", "psychology", "proposal", "accident", "discussion", "shopping", "mom", "disaster", "clothes", "potato", "session", "growth", "ear", "orange", "procedure", "affair", "salad", "dealer", "hall", "charity", "assumption", "country"];
+// var myScore = {
+//     wins: 0,
+//     losses: 0
+// };
 
-var myScore = {
-    wins: 0,
-    losses: 0
-};
-
-var keyPress;
-var wordArray = [];
-var numberOfLetters = 0;
-var countCorrectLetters = 0;
-var youWon = false;
-var secondsRemaining = 0;
-
-
-startButton.addEventListener("click", function() {
-    playGame();
-});
+// var keyPress;
+// var wordArray = [];
+// var numberOfLetters = 0;
+// var countCorrectLetters = 0;
+// var youWon = false;
+// var secondsRemaining = 0;
 
 
-function playGame() {
-    countCorrectLetters = 0;
-    youWon = false;
-    countdownEl.style.color = "black";
-
-    var mysteryWord = getNextWord();
-    wordArray = mysteryWord.split("");
-
-    numberOfLetters = wordArray.length;
-
-    clearDivs();
-
-    for (var i = 0; i < numberOfLetters; i++) {
-        addDiv("_", i);
-    }
-
-    startCountdown();
-    document.addEventListener("keydown", resolveKeyPress);
-}
+// startButton.addEventListener("click", function() {
+//     playGame();
+// });
 
 
-function getNextWord() {
+// function playGame() {
+//     countCorrectLetters = 0;
+//     youWon = false;
+//     countdownEl.style.color = "black";
+
+//     var mysteryWord = getNextWord();
+//     wordArray = mysteryWord.split("");
+
+//     numberOfLetters = wordArray.length;
+
+//     clearDivs();
+
+//     for (var i = 0; i < numberOfLetters; i++) {
+//         addDiv("_", i);
+//     }
+
+//     startCountdown();
+    // document.addEventListener("keydown", resolveKeyPress);
+// }
+
+
+// function getNextWord() {
     
-    wordIndex = JSON.parse(localStorage.getItem("wordIndex"));
-    if (!wordIndex) {
-        wordIndex = Math.floor(Math.random() * wordList.length);
-    }
-    wordIndex++;
+//     wordIndex = JSON.parse(localStorage.getItem("wordIndex"));
+//     if (!wordIndex) {
+//         wordIndex = Math.floor(Math.random() * wordList.length);
+//     }
+//     wordIndex++;
 
-    if (wordIndex >= wordList.length) {
-        wordIndex = 0;
-    }
-    localStorage.setItem("wordIndex", JSON.stringify(wordIndex));
+//     if (wordIndex >= wordList.length) {
+//         wordIndex = 0;
+//     }
+//     localStorage.setItem("wordIndex", JSON.stringify(wordIndex));
     
-    return wordList[wordIndex];
-}
+//     return wordList[wordIndex];
+// }
 
 
-function clearDivs() {
-    gameAreaEl.innerHTML = "";
-}
+// function clearDivs() {
+//     gameAreaEl.innerHTML = "";
+// }
 
 
-function addDiv(text, index) {
-    var div = document.createElement("div");
-    div.textContent = text;
-    div.setAttribute("id", "letter" + index);
-    gameAreaEl.appendChild(div);
-}
+// function addDiv(text, index) {
+//     var div = document.createElement("div");
+//     div.textContent = text;
+//     div.setAttribute("id", "letter" + index);
+//     gameAreaEl.appendChild(div);
+// }
 
 var startJStimer = document.getElementById("start-js-timer");
 var sayJStimer = document.getElementById("countdown-js");
 var secondsLeft = 13;
+// button.addEventListener("click", function() {
+//     countdown();
+// });
 
 startJStimer.addEventListener("click", function() {
+    appWindow.innerHTML = "Next";
     countdown();
 });
 
 
 
 function countdown() {
+    var secondsLeft = 13;
     var timerInterval = setInterval(function () {
         secondsLeft--;
-        sayJStimer.textContent = secondsLeft + " Seconds left till its over!"
+        sayJStimer.textContent = "You have " + secondsLeft + " seconds left till its over!"
         if (secondsLeft === 0) {  
             clearInterval(timerInterval);
+            console.log(timerInterval)
             sendMessage();
         }
         if (secondsLeft <= 10) {
@@ -242,145 +258,145 @@ function sendMessage() {
 
 
 
-function startCountdown() {
+// function startCountdown() {
 
-    secondsRemaining = gameDuration;
-    countdownEl.textContent = secondsRemaining;
-    countdownTextEl.textContent = "seconds remaining";
+//     secondsRemaining = gameDuration;
+//     countdownEl.textContent = secondsRemaining;
+//     countdownTextEl.textContent = "seconds remaining";
 
-    var timer = setInterval(function() {
+//     var timer = setInterval(function() {
 
-        if (youWon === true) {
-            clearInterval(timer);
-        }
+//         if (youWon === true) {
+//             clearInterval(timer);
+//         }
 
-        secondsRemaining--;
-        if (secondsRemaining >= 0 && youWon === false) {
-            countdownEl.textContent = secondsRemaining;
-        }
+//         secondsRemaining--;
+//         if (secondsRemaining >= 0 && youWon === false) {
+//             countdownEl.textContent = secondsRemaining;
+//         }
 
-        if (secondsRemaining <= 10) {
-            countdownEl.style.color = "red";
-        }
+//         if (secondsRemaining <= 10) {
+//             countdownEl.style.color = "red";
+//         }
 
-        if (secondsRemaining <= 0) {
-            clearInterval(timer);
+//         if (secondsRemaining <= 0) {
+//             clearInterval(timer);
 
-            youAreALoser();
-            endGame();
-        }
+//             youAreALoser();
+//             endGame();
+//         }
 
-    }, 1000);
+//     }, 1000);
 
-}
-
-
-function resolveKeyPress(event) {
-    keyPress = event.key;
-    checkForMatch(keyPress);
- }
+// }
 
 
-function checkForMatch(key) {
-    var correctMatch = false;
-    for (var i = 0; i < numberOfLetters; i++) {
-
-        if (wordArray[i] === key && document.getElementById("letter" + i).textContent !== key) {
-            document.getElementById("letter" + i).textContent = key;
-            countCorrectLetters++;
-            correctMatch = true;
-        }
-
-    }
-
-    if (correctMatch === false) {
-        secondsRemaining -= penalty;
-    }
-
-    if (countCorrectLetters === numberOfLetters) {
-        youAreAWinner();
-        endGame();
-    }
-}
+// function resolveKeyPress(event) {
+//     keyPress = event.key;
+//     checkForMatch(keyPress);
+//  }
 
 
-function youAreALoser() {
-    youWon = false;
-    myScore.losses++;
-    countdownEl.style.color = "black";
-    countdownEl.textContent = "Time's up!";
-    countdownTextEl.textContent = "";
-}
+// function checkForMatch(key) {
+//     var correctMatch = false;
+//     for (var i = 0; i < numberOfLetters; i++) {
+
+//         if (wordArray[i] === key && document.getElementById("letter" + i).textContent !== key) {
+//             document.getElementById("letter" + i).textContent = key;
+//             countCorrectLetters++;
+//             correctMatch = true;
+//         }
+
+//     }
+
+//     if (correctMatch === false) {
+//         secondsRemaining -= penalty;
+//     }
+
+//     if (countCorrectLetters === numberOfLetters) {
+//         youAreAWinner();
+//         endGame();
+//     }
+// }
 
 
-function youAreAWinner() {
-    youWon = true;
-    myScore.wins++;
-}
+// function youAreALoser() {
+//     youWon = false;
+//     myScore.losses++;
+//     countdownEl.style.color = "black";
+//     countdownEl.textContent = "Time's up!";
+//     countdownTextEl.textContent = "";
+// }
 
 
-function endGame() {
-    resultMessage(youWon);
-    saveScore();
-    startButton.textContent = "Play again?";
-}
+// function youAreAWinner() {
+//     youWon = true;
+//     myScore.wins++;
+// }
 
 
-function resultMessage(iWon) {
-    var message;
-    if (iWon === true) {
-        message = "YOU WON!!!🏆";
-    } else {
-        message = "YOU LOST!!!😖";
-    }
-    document.removeEventListener("keydown", resolveKeyPress);
-    clearDivs();
-    addDiv(message, 0);
-}
+// function endGame() {
+//     resultMessage(youWon);
+//     saveScore();
+//     startButton.textContent = "Play again?";
+// }
 
 
-function saveScore() {
-    localStorage.setItem("scoreStringify", JSON.stringify(myScore));
-    writeScore();
-}
+// function resultMessage(iWon) {
+//     var message;
+//     if (iWon === true) {
+//         message = "YOU WON!!!🏆";
+//     } else {
+//         message = "YOU LOST!!!😖";
+//     }
+//     document.removeEventListener("keydown", resolveKeyPress);
+//     clearDivs();
+//     addDiv(message, 0);
+// }
 
 
-function writeScore() {       
-    winCountEl.textContent = myScore.wins;
-    lossCountEl.textContent = myScore.losses;
-}
+// function saveScore() {
+//     localStorage.setItem("scoreStringify", JSON.stringify(myScore));
+//     writeScore();
+// }
 
 
-resetScoreButton.addEventListener("click", function() {
-    resetScore();
-});
+// function writeScore() {       
+//     winCountEl.textContent = myScore.wins;
+//     lossCountEl.textContent = myScore.losses;
+// }
 
 
-function resetScore () {
-    myScore.wins = 0;
-    myScore.losses = 0;
-
-    saveScore();
-}
+// resetScoreButton.addEventListener("click", function() {
+//     resetScore();
+// });
 
 
-function init() {
-    startButton.textContent = "Press Here To Test Your JavaScript Knowledge";
-    countdownEl.textContent = "Are you ready? The Countdown is about to start!";
-    getScore();
-}
+// function resetScore () {
+//     myScore.wins = 0;
+//     myScore.losses = 0;
+
+//     saveScore();
+// }
 
 
-function getScore() {
-    myScore = JSON.parse(localStorage.getItem("scoreStringify"));
-    if (!myScore) {
-        myScore = {
-            wins: 0,
-            losses: 0
-        };
-    }
-    writeScore();
-}
+// function init() {
+//     startButton.textContent = "Press Here To Test Your JavaScript Knowledge";
+//     countdownEl.textContent = "Are you ready? The Countdown is about to start!";
+//     getScore();
+// }
 
 
-init();
+// function getScore() {
+//     myScore = JSON.parse(localStorage.getItem("scoreStringify"));
+//     if (!myScore) {
+//         myScore = {
+//             wins: 0,
+//             losses: 0
+//         };
+//     }
+//     writeScore();
+// }
+
+
+// init();
