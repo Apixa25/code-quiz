@@ -19,40 +19,28 @@ header {
 #clock {
     font-size: 30px;
 }
+.content-section {
+    text-align: center;
+    color: var(--outer-space);
+    box-shadow: 0rem 0rem 0.7rem 0.7rem rgba(var(--ash-grey-rgb), 0.3);
 
-
-
-      @media screen and (max-width: 768px) {
-        .main {
-          margin: 0 1rem;
-        }
-        .content-section {
-          margin: 2rem 0.75rem;
-        }
-    
-        .card-timer {
-            height: 200px;
-          }
-    
-          .timer-text {
-              display: flex;
-              flex-direction: column;
-            flex-wrap: wrap;
-    
-          }
-    
-          #game-over-image{
-            height: 40%;
-            width: 40%;
-      
-        }
-      }
-      
-      @keyframes animatedBackground {
-        0% {
-          background-position: 0 0;
-        }
-        100% {
-          background-position: 100% 100%;
-        }
-      }
+      justify-content: center;
+  }
+  #content-section{
+    background-color: rgb(161, 22, 108);
+  }
+  #question-container{
+    background-color: aquamarine;
+  }
+  .list-item {
+    background-color: rgb(192, 156, 226);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+    font-size: 22px;
+  }
+  .list-item:hover {
+    background-color: var(--maya-blue);
+    cursor: pointer;
+  }
