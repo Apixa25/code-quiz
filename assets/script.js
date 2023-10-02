@@ -353,7 +353,7 @@ function handleFormSubmit(event) {
 
 // this is what happens if you get the answer right
 function answeredCorrectly() {
-    countdownClock +=5;
+    countdownClock +=0;
     playerScore +=10;
     correctLog++;
    
