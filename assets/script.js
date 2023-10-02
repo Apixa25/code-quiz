@@ -21,7 +21,7 @@ let countdownClock = 60;
 // current question index
 let questionIndex = 0;
 // how many points each correct answer is worth
-let playerScore= 1;
+let playerScore= 10;
 let correctLog = 0;
 let fullName = ""
 var timer;
@@ -42,6 +42,21 @@ const questions = [
         text: "what is the symbold for a constant?",
         options: ["item", "const", "let", "var"],
         answer: "const",
+    },
+    {
+        text: "How do you create a function in JavaScript?",
+        options: ["item", "const", "function", "var"],
+        answer: "function",
+    },
+    {
+        text: "How do you use loops in JavaScript?",
+        options: ["loops", "const", "let", "var"],
+        answer: "loops",
+    },
+    {
+        text: "How do you use strings in JavaScript?",
+        options: ["item", "const", "let", "strings"],
+        answer: "strings",
     },
 ];
 
@@ -185,11 +200,6 @@ function renderQuestion() {
       const h1 = document.createElement("h1");
       h1.textContent = ("GAME OVER");  
 
-    // create Image
-    // const img = document.createElement("img");
-    // img.setAttribute("src", "./images/egghead.jpg");
-    // img.setAttribute("id", "game-over-image")
-    
 
         // create h2
     const h2 = document.createElement("h2");
@@ -341,8 +351,8 @@ function handleFormSubmit(event) {
 
 
 
-
-const answeredCorrectly = () => {
+// this is what happens if you get the answer right
+function answeredCorrectly() {
     countdownClock +=5;
     playerScore +=10;
     correctLog++;
@@ -363,10 +373,10 @@ const answeredCorrectly = () => {
 
 
 
-
+// this is what happens if you get the answer wrong
 function answeredInCorrectly() {
 
-    countdownClock -=5;
+    countdownClock -=10;
     if (countdownClock <= 0) {
         clearInterval(clock);
         console.log(playerScore);
