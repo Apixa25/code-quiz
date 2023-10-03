@@ -35,32 +35,47 @@ const questions = [
     ],
     answer: "Programming language used to add interactivity to web pages",
   },
-
   {
-    text: "what is the symbold for a constant?",
-    options: ["item", "const", "let", "var"],
-    answer: "const",
+    text: "What is the type of the variable x if you declare it as var x = 'hello'?",
+    options: ["Number", "Boolean", "String", "Object"],
+    answer: "Stringt",
   },
   {
-    text: "How do you create a function in JavaScript?",
-    options: ["item", "const", "function", "var"],
-    answer: "function",
+    text: "What is the purpose of the typeof operator?",
+    options: ["The typeof operator is used to get the type of a variable or expression.", "The typeof operator is used to convert a value to a different type.", "The typeof operator is used to check if a value is a certain type.", "All of the above."],
+    answer: "The typeof operator is used to check if a value is a certain type.",
   },
   {
-    text: "How do you use loops in JavaScript?",
-    options: ["loops", "const", "let", "var"],
-    answer: "loops",
+    text: "Javascript is an _______ language?",
+    options: ["Object-Oriented", "Object-Based", "Procedural", "None of the Above"],
+    answer: "Object-Oriented",
   },
   {
-    text: "How do you use strings in JavaScript?",
-    options: ["item", "const", "let", "strings"],
-    answer: "strings",
+    text: "Which of the following keywords is used to define a variable in Javascript?",
+    options: ["var", "let", "Both A and B", "None of the above"],
+    answer: "Both A and B",
+  },
+  {
+    text: "Which of the following methods is used to access HTML elements using Javascript?",
+    options: ["getElementbyId()", "getElementByClassName()", "Both A and B", "None of the above"],
+    answer: "Both A and B",
+  },
+  {
+    text: "Upon encountering empty statements, what does the Javascript Interpreter do?",
+    options: ["Throws an error", "Ignores the statments", "Gives a warning", "None of the above"],
+    answer: "Ignores the statments",
+  },
+  {
+    text: "Which of the following methods can be used to display data in some form using Javascript?",
+    options: ["document.write()", "console.log()", "window.alert()", "All of the above"],
+    answer: "All of the above",
   },
 ];
 // I learned this way to enter questions and answers from Faisal Mohammed
 // event handler function to handle click events in question section
 // this function decides what happens next
 function clickDoesWhat(event) {
+
   // get current target
   const currentTarget = event.currentTarget;
 
