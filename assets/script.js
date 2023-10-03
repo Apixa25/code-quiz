@@ -57,7 +57,7 @@ const questions = [
     answer: "strings",
   },
 ];
-
+// I learned this way to enter questions and answers from Faisal Mohammed
 // event handler function to handle click events in question section
 // this function decides what happens next
 function clickDoesWhat(event) {
@@ -90,9 +90,9 @@ function clickDoesWhat(event) {
       answer.value === questions[questionIndex].answer &&
       questionIndex <= questions.length
     ) {
-      answeredCorrectly();
+      correctAnswer();
     } else {
-      answeredInCorrectly();
+      wrongAnswer();
     }
 
     if (questionIndex < questions.length - 1) {
@@ -101,7 +101,7 @@ function clickDoesWhat(event) {
       questionIndex += 1;
 
       // remove question
-      removeQuestion();
+      clearQuestion();
       // render question
       showQuestion();
     } else {
@@ -109,7 +109,7 @@ function clickDoesWhat(event) {
     }
   }
 }
-
+// I lerned that I needed this function from Faisal Mohammed
 // function to render question to page
 function showQuestion() {
   // get current question
@@ -162,6 +162,7 @@ function showQuestion() {
   // add event listener on question section
   section.addEventListener("click", clickDoesWhat);
 }
+// I learned how to do this from Faisal Mohammed
 
 function gameOver() {
   document.querySelector("#clock").remove();
@@ -212,7 +213,7 @@ function gameOver() {
   mainElement.append(section);
 
   // add event listener for form submission
-  form.addEventListener("submit", handleFormSubmit);
+  form.addEventListener("submit", saveScore);
 }
 
 function showTime() {
@@ -235,7 +236,7 @@ function showTime() {
   mainElement.append(timerArea);
 }
 
-function startTimer() {
+function timeStart() {
   var timerElement = document.querySelector("#clock");
   startButton.disabled = true;
   const timerTick = () => {
@@ -252,7 +253,7 @@ function startTimer() {
 }
 
 // function to render the results
-function handleFormSubmit(event) {
+function saveScore(event) {
   event.preventDefault();
 
   // get full name from input
@@ -270,8 +271,6 @@ function handleFormSubmit(event) {
 
     // remove form
     document.getElementById("high-score-form").remove();
-
-    //   render High Scores
 
     // create section
     const section = document.createElement("section");
@@ -299,7 +298,7 @@ function handleFormSubmit(event) {
 }
 
 // this is what happens if you get the answer right
-function answeredCorrectly() {
+function correctAnswer() {
   countdownClock += 0;
   playerScore += 10;
   correctLog++;
@@ -313,23 +312,23 @@ function answeredCorrectly() {
 }
 
 // this is what happens if you get the answer wrong
-function answeredInCorrectly() {
+function wrongAnswer() {
   countdownClock -= 10;
   if (countdownClock <= 0) {
     clearInterval(clock);
     console.log(playerScore);
-    // removeQuestion ();
+    // clearQuestion ();
     countdownClock = 0;
   }
 }
 
 // function to remove banner from page
-function removeBanner() {
+function clearBanner() {
   bannerArea.remove();
 }
 
 // function to remove question section from page
-function removeQuestion() {
+function clearQuestion() {
   // console.log("remove question");
 
   document.getElementById("question-container").remove();
@@ -362,12 +361,12 @@ let storeInLS = (key, value) => {
 };
 
 // order of events that are told to happen when the start button is clicked
-function handleStartButtonClick() {
+function clickStartButton() {
   //   initialise local storage
   initialiseLocalStorage();
 
   // remove banner section
-  removeBanner();
+  clearBanner();
 
   // render timer section
   showTime();
@@ -376,8 +375,8 @@ function handleStartButtonClick() {
   showQuestion();
 
   //   Starts the timer
-  startTimer();
+  timeStart();
 }
 
 // Attach event listener to start button to call startGame function on click
-startButton.addEventListener("click", handleStartButtonClick);
+startButton.addEventListener("click", clickStartButton);

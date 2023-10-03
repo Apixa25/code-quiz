@@ -10,114 +10,38 @@
 
 ## Description 
 
-[Visit the Deployed Site](https://youtu.be/BFyeuLhjcPY)
-|
+[Visit the Deployed Site](https://apixa25.github.io/code-quiz/)
 
-## Table of Contents (Optional)
+This is a coding quiz with multiple choice questions.  It is coded completely in HTML, CSS and JavaScript.  The purpose for building this is to showcase my ability to code in these languages as well as my ability to break down a project of this type into its basic parts in order to build it out. 
 
-If your README is very long, add a table of contents to make it easy for users to find what they need.
+What I personally find exciting about this bit of code is how the JavaScript dynamically updates the HTML and CSS on the fly in order to change the look of the page to do things like remove the banner and replace it with the questions.  This is not done by pre-making pages and showing them like slides.  This is done by telling the JavaScript how you want it to change the HTML and CSS depending on the game player's input. 
 
-* [Code Refactor Example](#code-refactor-example)
-* [Usage](#usage)
-* [Learning Points](#learning-points)
-* [Author Info](#author-info)
-* [Credits](#credits)
-* [License](#license)
-
-
-## Code Refactor Example
-
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
-
-
-```html
-<div class="header">
-        <h1>Hori<span class="seo">seo</span>n</h1>
-        <div>
-            <ul>
-                <li>
-                    <a href="#search-engine-optimization">Search Engine Optimization</a>
-                </li>
-                <li>
-                    <a href="#online-reputation-management">Online Reputation Management</a>
-                </li>
-                <li>
-                    <a href="#social-media-marketing">Social Media Marketing</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-```
-
-Converting the above non-semantic div with the class of 'header' to an appropriate [<header> semantic element](https://www.w3schools.com/html/html5_semantic_elements.asp). 
-
-```html
-<header>
-        <h1>Hori<span class="seo">seo</span>n</h1>
-        <nav>
-            <ul>
-                <li>
-                    <a href="#search-engine-optimization">Search Engine Optimization</a>
-                </li>
-                <li>
-                    <a href="#online-reputation-management">Online Reputation Management</a>
-                </li>
-                <li>
-                    <a href="#social-media-marketing">Social Media Marketing</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
-```
-
-This change require some additional modification to the CSS selector: 
-
-```css
-.header {
-    padding: 20px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: #2a607c;
-    color: #ffffff;
-}
-```
-
-No longer targeting the element on the page with the class of 'header' but instead the css selector targeting the 'header' element 
-
-```css
-header {
-    padding: 20px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: #2a607c;
-    color: #ffffff;
-}
-
-```
-
-## Usage 
-
-Provide instructions and examples for use. Include screenshots as needed. 
-
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-
-```md
-![alt text](assets/images/screenshot.png)
-```
-
+The things that this quiz does:
+* Ask questions with multiple choice answers.
+* The quiz is controlled by a countdown timer that starts when the quiz starts and ends the quiz when the timer has run to zero, or the player has answered all the questions.
+* There is a time penalty of 10 seconds for every wrong answer. 
+* The player scores 10 points for every right answer. There is no point penalty for wrong answers.
+* At the end of the game the player is given the chance to enter their name and their score is saved in the browser persistently so that they can compare their “high scores” with other players.
 
 ## Learning Points 
 
 
-This is a good place to Explain what you Learned by creating this application.
-This is a great way to remind about all of the Complex Skills you now have.
-If the user is less experienced than you:
-They will be impressed by what you can do!
 
-If the user is more experienced than you:
-They will be impressed by what you can do!
+At first glance it would seem easy to build a quiz like this.  But that is only if you are good at breaking large problems down into small manageable ones.  Let me show you the list of functions that were required to make this quiz possible in this way:
 
-Remember, it is easy to forget exactly how Valuable and Impressive your skills are, as well as How Much You’ve Learned!
-So quantify that here!
+* What happens when you click on something in the quiz form?
+* Show the Question
+* What happens when the Game is Over?
+* Show the timer
+* Start the timer
+* If correct answer
+* If wrong answer
+* Remove the banner
+* Remove the timer
+* What happens when you click the Start Button?
+
+
+
 
 
 ## Author Info
